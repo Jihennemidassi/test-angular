@@ -1,0 +1,50 @@
+<clr-datagrid>
+  <clr-dg-action-bar>
+      <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-secondary" routerLink="./add"><cds-icon shape="plus"></cds-icon> Add profile </button>
+      </div>
+      </clr-dg-action-bar>
+  <clr-dg-column>User ID</clr-dg-column>
+  <clr-dg-column>Name</clr-dg-column>
+  <clr-dg-column>Creation date</clr-dg-column>
+  <!-- <clr-dg-column>Favorite color</clr-dg-column> -->
+
+  <clr-dg-row *ngFor="let element of liste">
+      <clr-dg-action-overflow>
+          <button class="action-item"  routerLink="/profile/update/{{element.id}}" >Edit</button> 
+          <!-- routerLink="/profile/update-profile" -->
+          <button class="action-item" (click)="showModale(element.id)">Delete</button>
+          <button class="action-item" routerLink="/profile/details/{{element.id}}">details</button> 
+      </clr-dg-action-overflow>
+         <clr-dg-cell>{{element.id}}</clr-dg-cell>
+      <clr-dg-cell>{{element.name}}</clr-dg-cell>
+      <clr-dg-cell>{{element.age}}</clr-dg-cell>
+  
+  </clr-dg-row>
+
+  <clr-dg-footer>{{l}} users</clr-dg-footer>
+</clr-datagrid>
+<app-delete *ngIf="show" [idUser]="userId" (close)="actionClose()" (save)="actionSave()"></app-delete>
+<div *ngIf="showUpdate">
+  
+<!-- <div class="modal">
+    <div class="modal-dialog" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button aria-label="Close" class="close"  (click)="actionClose()"  type="button">
+            <cds-icon shape="close"></cds-icon>
+          </button>
+          <h3 class="modal-title">I have a nice title</h3>
+        </div>
+        <div class="modal-body">
+            <app-update></app-update>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline" (click)="showUpdate=false" type="button">Cancel</button>
+          <button class="btn btn-primary" (click)="showUpdate=false" type="button">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop" aria-hidden="true"></div>
+</div> -->

@@ -1,0 +1,30 @@
+
+
+<form clrForm  [formGroup]="form" (ngSubmit)="submit()">
+    <clr-input-container>
+      <label>My name</label>
+      <input clrInput  formControlName="name"/>
+      <clr-control-helper>Helper text</clr-control-helper>
+      <clr-control-error>This field is required!</clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
+        <label>My last name</label>
+        <input clrInput formControlName="lastname" />
+        <clr-control-helper>Helper text</clr-control-helper>
+      <clr-control-error>This field is required!</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>My email</label>
+        <input clrInput formControlName="email"/>
+        <clr-control-helper>Helper text</clr-control-helper>
+      <clr-control-error>This field is required!</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>My adress</label>
+        <input clrInput formControlName="age"/>
+        <clr-control-helper>Helper text</clr-control-helper>
+      <clr-control-error>This field is required!</clr-control-error>
+      </clr-input-container>
+      <button type="submit" [disabled]="form.invalid">submit</button>
+
+  </form>
